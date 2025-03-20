@@ -1,0 +1,16 @@
+# persistent-volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pgdata-pv
+spec:
+  capacity:
+    storage: 10Gi # Ajuste o tamanho conforme necessário
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/bitnami/postgresql"
+  claimRef:
+    name: pgdata-pvc
+    namespace: databases

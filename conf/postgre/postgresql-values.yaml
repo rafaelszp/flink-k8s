@@ -35,10 +35,10 @@ global:
     ## @param global.postgresql.auth.secretKeys.replicationPasswordKey Name of key in existing secret to use for PostgreSQL credentials (overrides `auth.secretKeys.replicationPasswordKey`). Only used when `global.postgresql.auth.existingSecret` is set.
     ##
     auth:
-      postgresPassword: ""
-      username: ""
-      password: ""
-      database: ""
+      postgresPassword: "test"
+      username: "harbor"
+      password: "securepwd"
+      database: "harbor"
       existingSecret: ""
       secretKeys:
         adminPasswordKey: ""
@@ -48,7 +48,7 @@ global:
     ##
     service:
       ports:
-        postgresql: ""
+        postgresql: "5432"
   ## Compatibility adaptations for Kubernetes platforms
   ##
   compatibility:
@@ -785,7 +785,7 @@ primary:
     volumeName: "data"
     ## @param primary.persistence.existingClaim Name of an existing PVC to use
     ##
-    existingClaim: ""
+    existingClaim: "pgdata-pvc"
     ## @param primary.persistence.mountPath The path the volume will be mounted at
     ## Note: useful when using custom PostgreSQL images
     ##
@@ -1579,7 +1579,7 @@ passwordUpdateJob:
 volumePermissions:
   ## @param volumePermissions.enabled Enable init container that changes the owner and group of the persistent volume
   ##
-  enabled: false
+  enabled: true
   ## @param volumePermissions.image.registry [default: REGISTRY_NAME] Init container volume-permissions image registry
   ## @param volumePermissions.image.repository [default: REPOSITORY_NAME/os-shell] Init container volume-permissions image repository
   ## @skip volumePermissions.image.tag Init container volume-permissions image tag (immutable tags are recommended)

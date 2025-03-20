@@ -1,0 +1,15 @@
+# persistent-volume-claim.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pgdata-pvc
+  namespace: databases
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi # Deve corresponder ao tamanho do PV
+  selector:
+    matchLabels:
+      kubernetes.io/hostname: "flink-worker2"
