@@ -14,7 +14,7 @@ nodes:
         hostPort: 40443
         protocol: TCP
       - containerPort: 30980
-        hostPort: 40080
+        hostPort: 30980
         protocol: TCP
       - containerPort: 6123
         hostPort: 46123

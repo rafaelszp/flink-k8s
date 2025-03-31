@@ -17,22 +17,18 @@ end
 printf "Install Ingress Nginx\n"
 kubectl apply -f conf/deploy-ingress-nginx.yaml
 
-printf "Installing PostgreSQL\n\n"
+# printf "Installing PostgreSQL\n\n"
+#
+# docker exec -it flink-worker2 mkdir /bitnami/postgresql -p
+# docker exec -it flink-worker2 chmod +777 /bitnami/postgresql
 
-docker exec -it flink-worker2 mkdir /bitnami/postgresql -p
-docker exec -it flink-worker2 chmod +777 /bitnami/postgresql
-
-kubectl create namespace databases
-
-kubectl apply -f conf/postgre/postgres-pvc.yaml
-kubectl apply -f conf/postgre/postgres-pv.yaml
-
-helm install postgresql oci://registry-1.docker.io/bitnamicharts/postgresql -n databases --create-namespace --values conf/postgre/postgresql-values.yaml
-
-
-printf "Installing Redis\n\n"
-
-
-
-printf "Installing Harbor\n\n"
-helm repo add harbor https://helm.goharbor.io
+# kubectl create namespace databases
+#
+# kubectl apply -f conf/postgre/postgres-pvc.yaml
+# kubectl apply -f conf/postgre/postgres-pv.yaml
+#
+# helm install postgresql oci://registry-1.docker.io/bitnamicharts/postgresql -n databases --create-namespace --values conf/postgre/postgresql-values.yaml
+#
+#
+# printf "Installing Redis\n\n"
+#
