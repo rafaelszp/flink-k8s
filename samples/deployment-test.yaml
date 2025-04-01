@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glassfish
+  labels:
+    app: glassfish
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: glassfish
+  template:
+    metadata:
+      labels:
+        app: glassfish
+    spec:
+      hostAliases:
+        - ip: "192.168.3.11"
+          hostnames:
+            - "core.harbor.domain"
+
+      containers:
+        - name: glassfish
+          image: core.harbor.domain:40443/test/glassfish-cilia:latest
+          ports:
+            - containerPort: 8282

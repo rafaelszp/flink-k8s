@@ -22,6 +22,9 @@ nodes:
       - containerPort: 6124
         hostPort: 46124
         protocol: TCP
+      - containerPort: 5000
+        hostPort: 35000
+        protocol: TCP
   - role: worker
   - role: worker
 
