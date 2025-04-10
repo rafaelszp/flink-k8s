@@ -19,8 +19,10 @@ spec:
           hostnames:
             - "core.harbor.domain"
 
+      imagePullSecrets:
+        - name: internal-registry-creds
       containers:
         - name: glassfish
-          image: core.harbor.domain:40443/test/glassfish-cilia:latest
+          image: deep-tarpon-decent.ngrok-free.app/test/glassfish-cilia:latest
           ports:
             - containerPort: 8282

@@ -28,8 +28,9 @@ expose:
       secretName: ""
   ingress:
     hosts:
+      # core: ""
       # core: core.harbor.domain
-      core: ""
+      core: deep-tarpon-decent.ngrok-free.app
     # set to the type of ingress controller if it has specific requirements.
     # leave as `default` for most ingress controllers.
     # set to `gce` if using the GCE ingress controller
@@ -111,7 +112,8 @@ expose:
 #
 # If Harbor is deployed behind the proxy, set it as the URL of proxy
 # externalURL: https://core.harbor.domain
-externalURL: https://core.harbor.domain:40443
+# externalURL: https://core.harbor.domain:40443
+externalURL: https://deep-tarpon-decent.ngrok-free.app
 
 # The persistence is enabled by default and a default StorageClass
 # is needed in the k8s cluster to provision volumes dynamically.
@@ -343,8 +345,9 @@ imagePullPolicy: IfNotPresent
 
 # Use this set to assign a list of default pullSecrets
 imagePullSecrets:
-#  - name: docker-registry-secret
-#  - name: internal-registry-secret
+  #  - name: docker-registry-secret
+  #  - name: internal-registry-secret
+  - name: internal-registry-creds
 
 # The update strategy for deployments with persistent volumes(jobservice, registry): "RollingUpdate" or "Recreate"
 # Set it as "Recreate" when "RWM" for volumes isn't supported
